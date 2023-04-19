@@ -1,3 +1,4 @@
+{% extends 'blog/base.html' %}
 {% block content %}
   {% for post in posts %}
       <article class="post">
@@ -8,3 +9,4 @@
           <p>{{ post.text|linebreaksbr }}</p>
       </article>
   {% endfor %}
+{% endblock %}
