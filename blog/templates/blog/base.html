@@ -8,10 +8,17 @@
         <title>Ivy Tech 2023/Gema Paz Barcenas</title>
     </head>
     <body>
+        
         <header class="page-header">
             <div class="container">
-                <a href="{% url post_new %}" class="top-menu">
-                    {% include './icons/file-earmark-plus.svg'%}
+                {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu">
+                    {% include './icons/file-earmark-post.svg'%}
+                </a>
+                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+                {% else %}
+                    <a href="{% url 'post_new' %}" class="top-menu">Login</a>
+                {% endif %}
                 <h1><a href="/">Django Girls Blog</a></h1>
             </div>
         </header>
